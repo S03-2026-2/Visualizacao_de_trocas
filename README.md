@@ -117,3 +117,13 @@ O sistema estabelece os seguintes relacionamentos principais:
 Ao utilizar a funcionalidade, o jogador consegue visualizar de forma organizada as trocas disponíveis e seu histórico de negociações.
 
 O sistema permite identificar quem participa da troca, quais cartas estão sendo negociadas, o status da operação e quando a troca foi criada, além de fornecer acesso aos detalhes das cartas e às notificações relacionadas ao processo.
+
+## Documentação
+
+- Diagrama de caso de uso:
+
+[!Diagrama de caso de uso](docs/Diagrama%20UML%20de%20caso%20de%20uso.jpeg)
+
+- Diagrama de classes:
+
+[!Diagrama de classes](docs/Diagrama%20UML%20de%20classes.jpeg)
