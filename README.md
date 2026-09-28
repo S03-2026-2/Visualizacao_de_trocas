@@ -127,3 +127,7 @@ O sistema permite identificar quem participa da troca, quais cartas estão sendo
 - Diagrama de classes:
 
 [!Diagrama de classes](docs/Diagrama%20UML%20de%20classes.jpeg)
+
+- Documentação do caso de uso:
+
+[!Documentação do caso de uso](docs/Documentação_casos_de_uso_.pdf)
