@@ -122,11 +122,11 @@ O sistema permite identificar quem participa da troca, quais cartas estão sendo
 
 - Diagrama de caso de uso:
 
-[!Diagrama de caso de uso](docs/Diagrama%20UML%20de%20caso%20de%20uso.jpeg)
+![Diagrama de caso de uso](docs/Diagrama%20UML%20de%20caso%20de%20uso.jpeg)
 
 - Diagrama de classes:
 
-[!Diagrama de classes](docs/Diagrama%20UML%20de%20classes.jpeg)
+![Diagrama de classes](docs/Diagrama%20UML%20de%20classes.jpeg)
 
 - Documentação do caso de uso:
 
