@@ -130,7 +130,7 @@ O sistema permite identificar quem participa da troca, quais cartas estão sendo
 
 - Documentação do caso de uso:
 
-[!Documentação do caso de uso](docs/Documentação_casos_de_uso_.pdf)
+[Documentação do caso de uso](docs/Documentação_casos_de_uso_.pdf)
 
 ## Project structure
 
