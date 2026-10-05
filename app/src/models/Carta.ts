@@ -19,4 +19,3 @@ export class Carta {
         this.disponivel = !this.disponivel;
     }
 }
-
