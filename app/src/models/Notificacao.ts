@@ -14,4 +14,12 @@ export class Notificacao {
   public marcarComoVisualizada(): void {
     this.visualizada = true;
   }
+
+  public obterMensagem(): string {
+    return this.mensagem;
+}
+
+public estaVisualizada(): boolean {
+    return this.visualizada;
+}
 }
