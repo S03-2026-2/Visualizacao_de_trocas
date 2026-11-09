@@ -11,11 +11,3 @@ export class Carta {
         this.disponivel = disponivel;
     }
 }
-
-    public exibirInformacoes(): void {
-        console.log(`ID: ${this.idCarta}`);
-        console.log(`Nome: ${this.nome}`);
-        console.log(`Tipo: ${this.tipo}`);
-        console.log(`Disponibilidade: ${this.disponivel}`);
-    }
-}
