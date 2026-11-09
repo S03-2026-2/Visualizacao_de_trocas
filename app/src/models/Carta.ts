@@ -10,14 +10,7 @@ export class Carta {
         this.tipo = tipo;
         this.disponivel = disponivel;
     }
-
-    public verificarDisponibilidade(): boolean {
-        return this.disponivel;
-    }
-
-    public alterarDisponibilidade(): void {
-        this.disponivel = !this.disponivel;
-    }
+}
 
     public exibirInformacoes(): void {
         console.log(`ID: ${this.idCarta}`);
