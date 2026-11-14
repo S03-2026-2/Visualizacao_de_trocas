@@ -4,3 +4,5 @@ function Trocas() {
         <div>Trocas</div>
     )
 }
+
+export default Trocas

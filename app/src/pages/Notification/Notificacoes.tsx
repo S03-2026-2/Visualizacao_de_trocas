@@ -5,3 +5,5 @@ function Notificacoes() {
         <div>Notificacoes</div>
     )
 }
+
+export default Notificacoes
