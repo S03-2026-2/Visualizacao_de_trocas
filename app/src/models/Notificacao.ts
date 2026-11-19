@@ -11,10 +11,6 @@ export class Notificacao {
     this.visualizada = false;
   }
 
-  public enviar(): void {
-    console.log(`Notificação enviada: ${this.mensagem}`);
-  }
-
   public marcarComoVisualizada(): void {
     this.visualizada = true;
   }

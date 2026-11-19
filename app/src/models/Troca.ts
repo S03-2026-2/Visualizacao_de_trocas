@@ -20,27 +20,8 @@ export class Troca {
         this.dataCriacao = dataCriacao;
     }
 
-    criarTroca():void {
-
-    }
-
-    consultarDisponibilidade():boolean{
-        return true;
-    }
-
-    solicitarTroca():void{
-
-    }
-
-    aceitarTroca():void{
-
-    }
-
-    recusarTroca():void{
-
-    }
-
-    finalizarTroca():void{
-
+    public visualizarTrocasAbertas(): Troca[] {
+        // Lógica para visualizar trocas abertas
+        return [];
     }
 }

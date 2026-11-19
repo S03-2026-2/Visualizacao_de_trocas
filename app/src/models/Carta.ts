@@ -1,28 +1,41 @@
+import { Pokemon } from "./Pokemon";
+
 export class Carta {
     private idCarta: string;
     private nome: string;
     private tipo: string;
-    private disponivel: boolean;
+    private ofertada: boolean;
+    private pokemon: Pokemon;
 
-    constructor(idCarta: string, nome: string, tipo: string, disponivel: boolean) {
+    constructor(idCarta: string, nome: string, tipo: string, ofertada: boolean, pokemon: Pokemon) {
         this.idCarta = idCarta;
         this.nome = nome;
         this.tipo = tipo;
-        this.disponivel = disponivel;
+        this.ofertada = ofertada;
+        this.pokemon = pokemon;
     }
 
-    public verificarDisponibilidade(): boolean {
-        return this.disponivel;
+    public getIdCarta(): string {
+        return this.idCarta;
     }
 
-    public alterarDisponibilidade(): void {
-        this.disponivel = !this.disponivel;
+    public getNome(): string {
+        return this.nome;
     }
 
-    public exibirInformacoes(): void {
-        console.log(`ID: ${this.idCarta}`);
-        console.log(`Nome: ${this.nome}`);
-        console.log(`Tipo: ${this.tipo}`);
-        console.log(`Disponibilidade: ${this.disponivel}`);
+    public getTipo(): string {
+        return this.tipo;
+    }
+
+    public getPokemon(): Pokemon {
+        return this.pokemon;
+    }
+
+    public getOfertada(): boolean {
+        return this.ofertada;
+    }
+
+    public setOfertada(ofertada: boolean): void {
+        this.ofertada = ofertada;
     }
 }

@@ -1,23 +1,35 @@
-
-import { useState } from 'react';
-import Trocas from './pages/Trocas';
+import { useState } from 'react'
+import Login from './pages/Login/Login'
+import Notificacoes from './pages/Notification/Notificacoes'
+import Trocas from './pages/Trocas/Trocas'
 
 const pages = [
   { id: 'Trocas', label: 'Trocas' },
-  { id: 'Notificacoes', label: 'Notificações' }
-] as const;
+  { id: 'Notificacoes', label: 'Notificacoes' }
+] as const
 
-type Page = (typeof pages)[number]['id'];
+type Page = (typeof pages)[number]['id']
 
 function App() {
-  const [activePage, setActivePage] = useState<Page>('Trocas');
+  const [activePage, setActivePage] = useState<Page>('Trocas')
+
+  function renderPage() {
+    switch (activePage) {
+      case 'Notificacoes':
+        return <Notificacoes />
+      case 'Trocas':
+        return <Trocas />
+      default:
+        return <Trocas />
+    }
+  }
 
   return (
     <div className="app">
       <header className="topbar">
         <div className="topbar_content">
           <h1>Logo</h1>
-
+        
           <nav className="navigation">
             {pages.map((page) => (
               <button
@@ -33,16 +45,11 @@ function App() {
           </nav>
         </div>
       </header>
-
-      <main key={activePage}>
-        {activePage === 'Trocas' ? (
-          <Trocas />
-        ) : (
-          <div>Notificações</div>
-        )}
-      </main>
+      
+      <main key={activePage}>{renderPage()}</main>
+      
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

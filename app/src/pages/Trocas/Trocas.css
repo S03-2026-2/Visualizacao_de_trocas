@@ -1,0 +1,119 @@
+
+/* Página principal de trocas */
+.trocas-page {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px 24px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Cabeçalho da página */
+.trocas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.trocas-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0 0 8px;
+}
+
+.trocas-header p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Contador de trocas disponíveis */
+.trocas-contador {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 20px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Organização da lista de trocas */
+.trocas-lista {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+
+/* Cards temporários enquanto TrocaCard não existe */
+.troca-card-temporario {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.troca-card-temporario:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.troca-card-temporario h3 {
+  margin: 0 0 15px;
+  color: var(--text-h);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.troca-card-temporario p {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.troca-card-temporario p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mensagem quando não existem trocas */
+.trocas-vazio {
+  grid-column: 1 / -1;
+  padding: 40px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  text-align: center;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 600px) {
+  .trocas-page {
+    padding: 24px 16px;
+  }
+
+  .trocas-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .trocas-header h2 {
+    font-size: 24px;
+  }
+
+  .trocas-lista {
+    grid-template-columns: 1fr;
+  }
+
+  .troca-card-temporario {
+    padding: 16px;
+  }
+}
