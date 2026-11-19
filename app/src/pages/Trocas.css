@@ -1,0 +1,29 @@
+
+.trocas-page {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.trocas-page header {
+  text-align: left;
+}
+
+.trocas-page header p {
+  color: #6b6375;
+  font-size: 15px;
+}
+
+.trocas-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 600px) {
+  .trocas-page {
+    padding: 20px;
+  }
+}
