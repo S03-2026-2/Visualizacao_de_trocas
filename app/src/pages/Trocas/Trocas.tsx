@@ -4,29 +4,23 @@ import './Trocas.css';
 // Futuramente, serão substituídos por dados do Controller.
 const trocasExemplo = [
   {
-    idTroca: 'TR001',
+    idTroca: 'TR003',
     jogadorSolicitante: 'Ash',
-    jogadorDestino: 'Misty',
     cartaOferecida: 'Pikachu',
-    cartaSolicitada: 'Charmander',
     status: 'Disponível',
     dataCriacao: '12/11/2026',
   },
   {
-    idTroca: 'TR002',
+    idTroca: 'TR004',
     jogadorSolicitante: 'Brock',
-    jogadorDestino: 'Gary',
     cartaOferecida: 'Bulbasaur',
-    cartaSolicitada: 'Squirtle',
     status: 'Disponível',
     dataCriacao: '13/11/2026',
   },
   {
-    idTroca: 'TR003',
+    idTroca: 'TR005',
     jogadorSolicitante: 'Misty',
-    jogadorDestino: 'Ash',
     cartaOferecida: 'Eevee',
-    cartaSolicitada: 'Jigglypuff',
     status: 'Disponível',
     dataCriacao: '14/11/2026',
   },
@@ -57,11 +51,7 @@ function Trocas() {
             <h3>Troca #{troca.idTroca}</h3>
 
             <p>Jogador: {troca.jogadorSolicitante}</p>
-            <p>Destinatário: {troca.jogadorDestino}</p>
-
             <p>Carta oferecida: {troca.cartaOferecida}</p>
-            <p>Carta solicitada: {troca.cartaSolicitada}</p>
-
             <p>Status: {troca.status}</p>
             <p>Data: {troca.dataCriacao}</p>
             </div>
