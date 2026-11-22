@@ -1,4 +1,4 @@
-import { Pokemon } from "./Pokemon";
+import type { Pokemon } from './Pokemon';
 
 export class Carta {
     private idCarta: string;
@@ -7,7 +7,13 @@ export class Carta {
     private ofertada: boolean;
     private pokemon: Pokemon;
 
-    constructor(idCarta: string, nome: string, tipo: string, ofertada: boolean, pokemon: Pokemon) {
+    constructor(
+        idCarta: string,
+        nome: string,
+        tipo: string,
+        ofertada: boolean,
+        pokemon: Pokemon
+    ) {
         this.idCarta = idCarta;
         this.nome = nome;
         this.tipo = tipo;
@@ -27,12 +33,12 @@ export class Carta {
         return this.tipo;
     }
 
-    public getPokemon(): Pokemon {
-        return this.pokemon;
-    }
-
     public getOfertada(): boolean {
         return this.ofertada;
+    }
+
+    public getPokemon(): Pokemon {
+        return this.pokemon;
     }
 
     public setOfertada(ofertada: boolean): void {

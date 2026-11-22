@@ -1,31 +1,29 @@
+import { JogadorHistoricos } from './JogadorHistoricos';
+import { JogadorNotificacoes } from './JogadorNotificacoes';
 
-import { Troca } from "./Troca";
-import { Notificacao } from "./Notificacao";
+import type { Troca } from './Troca';
+import type { Proposta } from './Proposta';
+import type { Notificacao } from './Notificacao';
 
 export class Jogador {
     private email: string;
-    private senha: string;
     private usuario: string;
     private autenticado: boolean;
-    private historicoTrocas: Troca[];
-    private notificacao: Notificacao[];
+    private historicos: JogadorHistoricos;
+    private notificacoes: JogadorNotificacoes;
 
-    constructor(email: string, senha: string, usuario: string) {
+    constructor(
+        email: string,
+        usuario: string,
+        historicos: JogadorHistoricos = new JogadorHistoricos(),
+        notificacoes: JogadorNotificacoes = new JogadorNotificacoes()
+    ) {
         this.email = email;
-        this.senha = senha;
         this.usuario = usuario;
         this.autenticado = false;
-        this.historicoTrocas = [];
-        this.notificacao = [];
+        this.historicos = historicos;
+        this.notificacoes = notificacoes;
     }
-
-    public getAutenticado(): boolean {
-        return this.autenticado;
-    }
-
-    public setAutenticado(autenticado: boolean): void {
-        this.autenticado = autenticado;
-   }
 
     public getEmail(): string {
         return this.email;
@@ -35,19 +33,43 @@ export class Jogador {
         return this.usuario;
     }
 
+    public getAutenticado(): boolean {
+        return this.autenticado;
+    }
+
+    public setAutenticado(autenticado: boolean): void {
+        this.autenticado = autenticado;
+    }
+
+    public getHistoricos(): JogadorHistoricos {
+        return this.historicos;
+    }
+
+    public getJogadorNotificacoes(): JogadorNotificacoes {
+        return this.notificacoes;
+    }
+
     public getHistoricoTrocas(): Troca[] {
-        return [...this.historicoTrocas];
+        return this.historicos.getHistoricoTrocas();
+    }
+
+    public getHistoricoPropostas(): Proposta[] {
+        return this.historicos.getHistoricoPropostas();
     }
 
     public getNotificacoes(): Notificacao[] {
-        return [...this.notificacao];
+        return this.notificacoes.getNotificacoes();
     }
 
     public adicionarTroca(troca: Troca): void {
-        this.historicoTrocas.push(troca);
+        this.historicos.adicionarOuAtualizarTroca(troca);
+    }
+
+    public adicionarProposta(proposta: Proposta): void {
+        this.historicos.adicionarOuAtualizarProposta(proposta);
     }
 
     public adicionarNotificacao(notificacao: Notificacao): void {
-        this.notificacao.push(notificacao);
+        this.notificacoes.adicionarOuAtualizar(notificacao);
     }
 }
