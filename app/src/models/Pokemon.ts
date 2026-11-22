@@ -6,4 +6,12 @@ export class Pokemon {
         this.id = id;
         this.sprite = sprite;
     }
+
+    public getId(): string {
+    return this.id;
+}
+
+public getSprite(): string {
+    return this.sprite;
+}
 }
