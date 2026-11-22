@@ -1,6 +1,6 @@
 export class Pokemon {
     private id: string;
-    private sprite: string; // Tocar para imagem depois
+    private sprite: string;
 
     constructor(id: string, sprite: string) {
         this.id = id;
@@ -8,10 +8,10 @@ export class Pokemon {
     }
 
     public getId(): string {
-    return this.id;
-}
+        return this.id;
+    }
 
-public getSprite(): string {
-    return this.sprite;
-}
+    public getSprite(): string {
+        return this.sprite;
+    }
 }
