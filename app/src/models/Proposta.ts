@@ -1,24 +1,63 @@
-import { Jogador } from './Jogador';
-import { Carta } from './Carta';
-import { Troca } from './Troca';
+import type { Jogador } from './Jogador';
+import type { Carta } from './Carta';
+import type { Troca } from './Troca';
+
+export type StatusProposta =
+    | 'Aberta'
+    | 'Cancelada'
+    | 'Aceita'
+    | 'Recusada';
 
 export class Proposta {
     private idProposta: string;
+    private idTroca: string;
     private jogadorOfertante: Jogador;
     private cartaOferecida: Carta;
     private dataCriacao: Date;
-    private status: 'Aberta' | 'Cancelada' | 'Aceita' | 'Recusada';
+    private status: StatusProposta;
 
-    constructor(idProposta: string, jogadorOfertante: Jogador, cartaOferecida: Carta) {
+    constructor(
+        idProposta: string,
+        idTroca: string,
+        jogadorOfertante: Jogador,
+        cartaOferecida: Carta,
+        dataCriacao: Date = new Date(),
+        status: StatusProposta = 'Aberta'
+    ) {
         this.idProposta = idProposta;
+        this.idTroca = idTroca;
         this.jogadorOfertante = jogadorOfertante;
         this.cartaOferecida = cartaOferecida;
-        this.dataCriacao = new Date();
-        this.status = 'Aberta';
+        this.dataCriacao = new Date(dataCriacao.getTime());
+        this.status = status;
     }
 
-    public visualizarPropostas(t: Troca): Proposta[] {
-        // Lógica para visualizar propostas relacionadas a uma troca específica
+    public getIdProposta(): string {
+        return this.idProposta;
+    }
+
+    public getIdTroca(): string {
+        return this.idTroca;
+    }
+
+    public getJogadorOfertante(): Jogador {
+        return this.jogadorOfertante;
+    }
+
+    public getCartaOferecida(): Carta {
+        return this.cartaOferecida;
+    }
+
+    public getDataCriacao(): Date {
+        return new Date(this.dataCriacao.getTime());
+    }
+
+    public getStatus(): StatusProposta {
+        return this.status;
+    }
+
+    // Temporário: a consulta será implementada no serviço.
+    public visualizarPropostas(_troca: Troca): Proposta[] {
         return [];
     }
 }
