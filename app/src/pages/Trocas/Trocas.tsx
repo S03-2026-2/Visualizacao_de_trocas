@@ -1,4 +1,6 @@
+
 import './Trocas.css';
+import TrocaCard from '../../components/TrocaCard';
 
 // Dados temporários para visualização da página.
 // Futuramente, serão substituídos por dados do Controller.
@@ -30,7 +32,7 @@ const trocasExemplo = [
     status: 'Disponível',
     dataCriacao: '14/11/2026',
   },
-];
+] as const;
 
 function Trocas() {
   return (
@@ -52,19 +54,10 @@ function Trocas() {
       <div className="trocas-lista">
         {trocasExemplo.length > 0 ? (
           trocasExemplo.map((troca) => (
-            //Temporário: Adicionei a classe "troca-card-temporario" para estilizar os cards de troca.
-            <div className="troca-card-temporario" key={troca.idTroca}>
-            <h3>Troca #{troca.idTroca}</h3>
-
-            <p>Jogador: {troca.jogadorSolicitante}</p>
-            <p>Destinatário: {troca.jogadorDestino}</p>
-
-            <p>Carta oferecida: {troca.cartaOferecida}</p>
-            <p>Carta solicitada: {troca.cartaSolicitada}</p>
-
-            <p>Status: {troca.status}</p>
-            <p>Data: {troca.dataCriacao}</p>
-            </div>
+            <TrocaCard
+              key={troca.idTroca}
+              {...troca}
+            />
           ))
         ) : (
           <p className="trocas-vazio">
