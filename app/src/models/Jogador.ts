@@ -9,7 +9,6 @@ export class Jogador {
     private email: string;
     private usuario: string;
     private autenticado: boolean;
-
     private historicos: JogadorHistoricos;
     private notificacoes: JogadorNotificacoes;
 

@@ -1,24 +1,27 @@
 import { useState } from 'react'
 import Login from './pages/Login/Login'
 import Notificacoes from './pages/Notification/Notificacoes'
+import Historico from './pages/Historico/Historico'
 import Trocas from './pages/Trocas/Trocas'
 
 const pages = [
   { id: 'Trocas', label: 'Trocas' },
-  { id: 'Notificacoes', label: 'Notificacoes' }
+  { id: 'Historico', label: 'Historico' }
+
 ] as const
 
 type Page = (typeof pages)[number]['id']
 
 function App() {
   const [activePage, setActivePage] = useState<Page>('Trocas')
+  const [notificationsOpen, setNotificationsOpen] = useState(false)
 
   function renderPage() {
     switch (activePage) {
-      case 'Notificacoes':
-        return <Notificacoes />
       case 'Trocas':
         return <Trocas />
+      case 'Historico':
+        return <Historico />
       default:
         return <Trocas />
     }
@@ -42,11 +45,22 @@ function App() {
                 {page.label}
               </button>
             ))}
+            <button
+              className="notification-toggle"
+              type="button"
+              aria-haspopup="dialog"
+              aria-expanded={notificationsOpen}
+              aria-controls={notificationsOpen ? 'notificacoes-popup' : undefined}
+              onClick={() => setNotificationsOpen((open) => !open)}
+            >
+              Notificações
+            </button>
           </nav>
         </div>
       </header>
       
       <main key={activePage}>{renderPage()}</main>
+      {notificationsOpen && <Notificacoes />}
       
     </div>
   )
