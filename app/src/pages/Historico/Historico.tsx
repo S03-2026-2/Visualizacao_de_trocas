@@ -1,26 +1,28 @@
 import './Historico.css'
+import TrocaCardHistorico from '../../components/TrocaCardHistorico';
 
-const historicoExemploTrocas = [
-        {
-        idTroca: 'TR002',
-        jogadorSolicitante: 'Ash',
-        cartaOferecida: 'Mew',
-        jogadorDestino: 'Misty',
-        cartaSolicitada: 'Kakuna',
-        status: 'Concluido',
-        dataCriacao: '10/11/2026'
-    }
-]
-
-const historicoExemploPropostas = [
+// Dados temporários para visualização da página.
+// Futuramente, serão substituídos por dados do Controller.
+const historicoExemplo = [
     {
-        idProposta: 'PR001',
+        idTroca: 'TR001',
+        jogadorDono: 'Ash',
         jogadorOfertante: 'Misty',
+        cartaLeiloada: 'Kakuna',
+        cartaOferecida: 'Eevee',
+        status: 'Aceita',
+        dataCriacao: '09/11/2026'
+    },
+    {
+        idTroca: 'TR002',
+        jogadorDono: 'Brock',
+        jogadorOfertante: 'Ash',
+        cartaLeiloada: 'Bulbasaur',
         cartaOferecida: 'Ditto',
-        dataCriacao: '09/11/2026',
-        status: 'Recusada'
-    }
-]
+        status: 'Recusada',
+        dataCriacao: '10/11/2026'
+    },
+] as const;
 
 function Historico() {
     return (
@@ -34,48 +36,21 @@ function Historico() {
                 </div>
 
                 <span className='historico-contador'>
-                    {historicoExemploPropostas.length + historicoExemploTrocas.length} negociações
+                    {historicoExemplo.length} negociações
                 </span>
             </header>
 
-            <h2 className='historicoProposta-title'>Propostas:</h2>
             <div className='historicoProposta-lista'>
-                {historicoExemploPropostas.length > 0 && historicoExemploTrocas.length > 0 ? (
-                    historicoExemploPropostas.map((historico) => (
-                        <div className='historico-card-temporario'>
-                            <h3>Proposta: {historico.idProposta}</h3>
-
-                            <p>Ofertante: {historico.jogadorOfertante}</p>
-                            <p>Carta: {historico.cartaOferecida}</p>
-                            <p>Data Criação: {historico.dataCriacao}</p>
-                            <p>Status: {historico.status}</p>
-                        </div>
+                {historicoExemplo.length > 0 ? (
+                    historicoExemplo.map((historico) => (
+                        <TrocaCardHistorico 
+                            key={historico.idTroca}
+                            {...historico}
+                        />
                     ))
                 ) : (
                     <p className='historicoProposta-vazio'>
                         Nenhuma proposta para ser visualizada
-                    </p>
-                )}
-            </div>
-
-            <h2 className='historicoProposta-title'>Trocas</h2>
-            <div className='historicoTroca-lista'>
-                {historicoExemploPropostas.length > 0 && historicoExemploTrocas.length > 0 ? (
-                    historicoExemploTrocas.map((historico) => (
-                        <div className='historico-card-temporario'>
-                            <h3>Troca: {historico.idTroca}</h3>
-
-                            <p>Jogador Solicitante: {historico.jogadorSolicitante}</p>
-                            <p>Carta Oferecida: {historico.cartaOferecida}</p>
-                            <p>Jogador Destino: {historico.jogadorDestino}</p>
-                            <p>Carta Solicitada: {historico.cartaSolicitada}</p>
-                            <p>Data de criação: {historico.dataCriacao}</p>
-                            <p>Status: {historico.status}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p className='historicoProposta-vazio'>
-                        Nenhuma troca para ser visualizada
                     </p>
                 )}
             </div>
