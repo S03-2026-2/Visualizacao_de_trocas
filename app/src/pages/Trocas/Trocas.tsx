@@ -1,4 +1,3 @@
-
 import './Trocas.css';
 import TrocaCard from '../../components/TrocaCard';
 
@@ -6,29 +5,29 @@ import TrocaCard from '../../components/TrocaCard';
 // Futuramente, serão substituídos por dados do Controller.
 const trocasExemplo = [
   {
-    idTroca: 'TR001',
+    idTroca: 'TR003',
     jogadorSolicitante: 'Ash',
     jogadorDestino: 'Misty',
     cartaOferecida: 'Pikachu',
-    cartaSolicitada: 'Charmander',
+    cartaSolicitada: 'Eevee',
     status: 'Disponível',
     dataCriacao: '12/11/2026',
   },
   {
-    idTroca: 'TR002',
+    idTroca: 'TR004',
     jogadorSolicitante: 'Brock',
-    jogadorDestino: 'Gary',
+    jogadorDestino: 'Ash',
     cartaOferecida: 'Bulbasaur',
-    cartaSolicitada: 'Squirtle',
+    cartaSolicitada: 'Charmander',
     status: 'Disponível',
     dataCriacao: '13/11/2026',
   },
   {
-    idTroca: 'TR003',
+    idTroca: 'TR005',
     jogadorSolicitante: 'Misty',
-    jogadorDestino: 'Ash',
+    jogadorDestino: 'Brock',
     cartaOferecida: 'Eevee',
-    cartaSolicitada: 'Jigglypuff',
+    cartaSolicitada: 'Pikachu',
     status: 'Disponível',
     dataCriacao: '14/11/2026',
   },

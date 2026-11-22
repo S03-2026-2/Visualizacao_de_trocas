@@ -7,7 +7,7 @@ export class Troca {
     private jogadorDestino : Jogador;
     private cartaOferecida : Carta;
     private cartaSolicitada : Carta;
-    private status : string;
+    private status : 'Aberta' | 'Concluida' | 'Cancelada';
     private dataCriacao : Date;
 
     constructor(idTroca:string, jogadorSolicitante:Jogador, jogadorDestino:Jogador, cartaOferecida:Carta, cartaSolicitada:Carta, status:string, dataCriacao:Date) {
@@ -16,7 +16,7 @@ export class Troca {
         this.jogadorDestino = jogadorDestino;
         this.cartaOferecida = cartaOferecida;
         this.cartaSolicitada = cartaSolicitada;
-        this.status = status;
+        this.status = 'Aberta';
         this.dataCriacao = dataCriacao;
     }
 
