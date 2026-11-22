@@ -1,4 +1,5 @@
 import './Trocas.css';
+import TrocaCard from '../../components/TrocaCard';
 
 // Dados temporários para visualização da página.
 // Futuramente, serão substituídos por dados do Controller.
@@ -6,25 +7,31 @@ const trocasExemplo = [
   {
     idTroca: 'TR003',
     jogadorSolicitante: 'Ash',
+    jogadorDestino: 'Misty',
     cartaOferecida: 'Pikachu',
+    cartaSolicitada: 'Eevee',
     status: 'Disponível',
     dataCriacao: '12/11/2026',
   },
   {
     idTroca: 'TR004',
     jogadorSolicitante: 'Brock',
+    jogadorDestino: 'Ash',
     cartaOferecida: 'Bulbasaur',
+    cartaSolicitada: 'Charmander',
     status: 'Disponível',
     dataCriacao: '13/11/2026',
   },
   {
     idTroca: 'TR005',
     jogadorSolicitante: 'Misty',
+    jogadorDestino: 'Brock',
     cartaOferecida: 'Eevee',
+    cartaSolicitada: 'Pikachu',
     status: 'Disponível',
     dataCriacao: '14/11/2026',
   },
-];
+] as const;
 
 function Trocas() {
   return (
@@ -46,15 +53,10 @@ function Trocas() {
       <div className="trocas-lista">
         {trocasExemplo.length > 0 ? (
           trocasExemplo.map((troca) => (
-            //Temporário: Adicionei a classe "troca-card-temporario" para estilizar os cards de troca.
-            <div className="troca-card-temporario" key={troca.idTroca}>
-            <h3>Troca #{troca.idTroca}</h3>
-
-            <p>Jogador: {troca.jogadorSolicitante}</p>
-            <p>Carta oferecida: {troca.cartaOferecida}</p>
-            <p>Status: {troca.status}</p>
-            <p>Data: {troca.dataCriacao}</p>
-            </div>
+            <TrocaCard
+              key={troca.idTroca}
+              {...troca}
+            />
           ))
         ) : (
           <p className="trocas-vazio">
