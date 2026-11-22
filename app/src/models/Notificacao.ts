@@ -1,25 +1,38 @@
 export class Notificacao {
-  private idNotificacao: string;
-  private mensagem: string;
-  private date: Date;
-  private visualizada: boolean;
+    private idNotificacao: string;
+    private mensagem: string;
+    private data: Date;
+    private visualizada: boolean;
 
-  constructor(idNotificacao: string, mensagem: string) {
-    this.idNotificacao = idNotificacao;
-    this.mensagem = mensagem;
-    this.date = new Date();
-    this.visualizada = false;
-  }
+    constructor(
+        idNotificacao: string,
+        mensagem: string,
+        data: Date = new Date(),
+        visualizada: boolean = false
+    ) {
+        this.idNotificacao = idNotificacao;
+        this.mensagem = mensagem;
+        this.data = new Date(data.getTime());
+        this.visualizada = visualizada;
+    }
 
-  public marcarComoVisualizada(): void {
-    this.visualizada = true;
-  }
+    public getIdNotificacao(): string {
+        return this.idNotificacao;
+    }
 
-  public obterMensagem(): string {
-    return this.mensagem;
-}
+    public obterMensagem(): string {
+        return this.mensagem;
+    }
 
-public estaVisualizada(): boolean {
-    return this.visualizada;
-}
+    public getData(): Date {
+        return new Date(this.data.getTime());
+    }
+
+    public estaVisualizada(): boolean {
+        return this.visualizada;
+    }
+
+    public marcarComoVisualizada(): void {
+        this.visualizada = true;
+    }
 }
