@@ -120,13 +120,12 @@ Uma troca é representada pela entidade `Troca`, que possui os seguintes dados:
 
 | Atributo | Tipo | Descrição |
 |----------|------|-----------|
-| `idTroca` | String | Identificador da troca |
-| `jogadorSolicitante` | Jogador | Jogador que iniciou a troca |
-| `jogadorDestino` | Jogador | Jogador que recebeu a solicitação |
-| `cartaOferecida` | Carta | Carta oferecida pelo solicitante |
-| `cartaSolicitada` | Carta | Carta desejada na negociação |
-| `status` | String | Estado atual da troca |
+| `idTroca` | string | Identificador único da troca |
+| `jogadorDono` | Jogador | Jogador responsável por criar a troca |
+| `cartaLeiloada` | Carta | Carta disponibilizada pelo jogador na troca |
 | `dataCriacao` | Date | Data de criação da troca |
+| `status` | StatusTroca | Estado da troca: Aberta, Concluida ou Cancelada |
+  
 
 ## Relacionamentos
 
@@ -153,7 +152,7 @@ O sistema permite identificar quem participa da troca, quais cartas estão sendo
 
 - Diagrama de classes:
 
-![Diagrama de classes](docs/Diagrama_de_Classe_VdT.drawio.svg)
+![Diagrama de classes](docs/VTD_Diagrama_de_Classes.drawio.svg)
 
 - Documentação do caso de uso:
 
