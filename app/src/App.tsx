@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Login from './pages/Login/Login'
 import Notificacoes from './pages/Notification/Notificacoes'
 import Historico from './pages/Historico/Historico'
 import Trocas from './pages/Trocas/Trocas'
