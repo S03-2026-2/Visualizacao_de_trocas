@@ -20,7 +20,7 @@ function TrocaCard({
         <article className='troca-card'>
             <header className='troca-card-header'>
                 <h3>Troca #{idTroca}</h3>
-                <span className={`troca-status ${status.toLocaleLowerCase}`}>
+                <span className={`troca-status ${status.toLocaleLowerCase()}`}>
                     {status}
                 </span>
             </header>

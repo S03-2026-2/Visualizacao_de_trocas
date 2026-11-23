@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Notificacoes from './pages/Notification/Notificacoes'
 import Historico from './pages/Historico/Historico'
 import Trocas from './pages/Trocas/Trocas'
+import './App.css'
 
 const pages = [
   { id: 'Trocas', label: 'Trocas' },
