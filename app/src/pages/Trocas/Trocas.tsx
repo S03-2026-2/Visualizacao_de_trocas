@@ -4,33 +4,33 @@ import TrocaCard from '../../components/TrocaCard';
 // Dados temporários para visualização da página.
 // Futuramente, serão substituídos por dados do Controller.
 const trocasExemplo = [
-  {
-    idTroca: 'TR003',
-    jogadorSolicitante: 'Ash',
-    jogadorDestino: 'Misty',
-    cartaOferecida: 'Pikachu',
-    cartaSolicitada: 'Eevee',
-    status: 'Disponível',
-    dataCriacao: '12/11/2026',
-  },
-  {
-    idTroca: 'TR004',
-    jogadorSolicitante: 'Brock',
-    jogadorDestino: 'Ash',
-    cartaOferecida: 'Bulbasaur',
-    cartaSolicitada: 'Charmander',
-    status: 'Disponível',
-    dataCriacao: '13/11/2026',
-  },
-  {
-    idTroca: 'TR005',
-    jogadorSolicitante: 'Misty',
-    jogadorDestino: 'Brock',
-    cartaOferecida: 'Eevee',
-    cartaSolicitada: 'Pikachu',
-    status: 'Disponível',
-    dataCriacao: '14/11/2026',
-  },
+    {
+        idTroca: 'TR003',
+        jogadorDono: 'Ash',
+        jogadorOfertante: 'Misty',
+        cartaLeiloada: 'Pikachu',
+        cartaOferecida: 'Eevee',
+        status: 'Aberta',
+        dataCriacao: '12/11/2026'
+    },
+    {
+        idTroca: 'TR004',
+        jogadorDono: 'Brock',
+        jogadorOfertante: 'Ash',
+        cartaLeiloada: 'Bulbasaur',
+        cartaOferecida: 'Charmander',
+        status: 'Aberta',
+        dataCriacao: '13/11/2026'
+    },
+    {
+        idTroca: 'TR005',
+        jogadorDono: 'Misty',
+        jogadorOfertante: 'Brock',
+        cartaLeiloada: 'Eevee',
+        cartaOferecida: 'Pikachu',
+        status: 'Aberta',
+        dataCriacao: '14/11/2026'
+    }
 ] as const;
 
 function Trocas() {
