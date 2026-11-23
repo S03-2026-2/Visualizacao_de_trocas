@@ -51,38 +51,6 @@
   gap: 20px;
 }
 
-/* Cards temporários enquanto TrocaCard não existe */
-.troca-card-temporario {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.troca-card-temporario:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.troca-card-temporario h3 {
-  margin: 0 0 15px;
-  color: var(--text-h);
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.troca-card-temporario p {
-  margin: 0 0 8px;
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.troca-card-temporario p:last-child {
-  margin-bottom: 0;
-}
 
 /* Mensagem quando não existem trocas */
 .trocas-vazio {
@@ -105,6 +73,10 @@
     align-items: flex-start;
   }
 
+  .trocas-header p {
+    margin: 0;
+  }
+
   .trocas-header h2 {
     font-size: 24px;
   }
@@ -113,7 +85,7 @@
     grid-template-columns: 1fr;
   }
 
-  .troca-card-temporario {
+  .troca-card {
     padding: 16px;
   }
 }
