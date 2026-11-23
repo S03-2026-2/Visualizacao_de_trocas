@@ -69,6 +69,22 @@ export const trocaPikachu = new Troca(
     'Aberta'
 );
 
+export const trocaConcluida = new Troca(
+    'TR001',
+    ash,
+    cartaBulbasaur,
+    new Date('2026-11-09T10:00:00.000Z'),
+    'Concluida'
+);
+
+export const trocaCancelada = new Troca(
+    'TR002',
+    brock,
+    cartaBulbasaur,
+    new Date('2026-11-10T10:00:00.000Z'),
+    'Cancelada'
+);
+
 export const propostaEevee = new Proposta(
     'PR004',
     'TR003',
@@ -85,4 +101,16 @@ export const notificacaoProposta = new Notificacao(
     false
 );
 
+export const notificacaoVisualizada = new Notificacao(
+    'NT001',
+    'Sua proposta PR002 foi recusada',
+    new Date('2026-11-10T13:00:00.000Z'),
+    true
+);
+
+ash.adicionarNotificacao(notificacaoVisualizada);
 ash.adicionarNotificacao(notificacaoProposta);
+ash.adicionarTroca(trocaPikachu);
+misty.adicionarProposta(propostaEevee);
+ash.adicionarTroca(trocaConcluida);
+brock.adicionarTroca(trocaCancelada);
