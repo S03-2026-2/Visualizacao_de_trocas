@@ -1,5 +1,7 @@
 
-/* Cabeçalho principal */
+/* =====================================
+   ESTRUTURA PRINCIPAL
+===================================== */
 
 .app {
   width: 100%;
@@ -8,21 +10,25 @@
   flex-direction: column;
 }
 
-.topbar {
-  width: 100%;
-  background: #172746;
-  border-bottom: 1px solid #293d60;
-  padding: 18px 32px;
-  box-sizing: border-box;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
-}
+/* =====================================
+   CABEÇALHO
+===================================== */
 
 .topbar {
-  background: linear-gradient(110deg, #142440, #1c3155);
+  width: 100%;
+  background: linear-gradient(
+    110deg,
+    #101c35,
+    #1c3155
+  );
+  border-bottom: 1px solid #293d60;
+  padding: 12px 32px;
+  box-sizing: border-box;
   position: relative;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
+/* Linha colorida inferior */
 .topbar::after {
   content: '';
   position: absolute;
@@ -39,7 +45,7 @@
 }
 
 .topbar_content {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -47,72 +53,157 @@
   gap: 24px;
 }
 
-.topbar_content h1 {
-  margin: 0;
-  color: #f8fafc;
-  font-size: 30px;
-  font-weight: 750;
-  letter-spacing: -0.8px;
+/* =====================================
+   LOGO
+===================================== */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-/* Navegação */
+.logo-trocadex {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* =====================================
+   NAVEGAÇÃO
+===================================== */
 
 .navigation {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.nav-item {
-  padding: 10px 18px;
+.nav-item,
+.notification-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 16px;
+
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 10px;
+
   background: transparent;
-  color: #b8c7dc;
+  color: #cbd5e1;
+
+  font-family: inherit;
   font-size: 14px;
   font-weight: 600;
+  line-height: 1.2;
+
   cursor: pointer;
-  transition: 0.2s ease;
-  letter-spacing: 0.2px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.nav-item:hover {
-  background: rgba(96, 165, 250, 0.1);
+/* Ícones */
+.nav-item svg,
+.notification-toggle svg {
+  flex-shrink: 0;
+}
+
+/* Efeito ao passar o mouse */
+.nav-item:hover,
+.notification-toggle:hover {
+  background: rgba(96, 165, 250, 0.12);
   color: #ffffff;
+  transform: translateY(-1px);
 }
 
+/* Página selecionada */
 .nav-item.active {
-  background: #2563eb;
-  color: #ffffff;
-  border-color: #3b82f6;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  background: #f6c945;
+  color: #172554;
+  border-color: #facc15;
+  box-shadow: 0 3px 10px rgba(246, 201, 69, 0.2);
 }
 
-/* Área principal */
+/* Notificações abertas */
+.notification-toggle.notification-active {
+  background: rgba(246, 201, 69, 0.14);
+  color: #f6c945;
+  border-color: rgba(246, 201, 69, 0.4);
+}
+
+/* Acessibilidade para teclado */
+.nav-item:focus-visible,
+.notification-toggle:focus-visible {
+  outline: 2px solid #f6c945;
+  outline-offset: 3px;
+}
+
+/* =====================================
+   CONTEÚDO PRINCIPAL
+===================================== */
 
 .app main {
   flex: 1;
   width: 100%;
+  min-width: 0;
 }
 
-/* Responsividade */
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .topbar {
-    padding: 16px;
+    padding: 14px 20px;
   }
 
   .topbar_content {
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
   }
 
-  .topbar_content h1 {
-    font-size: 26px;
+  .logo-trocadex {
+    width: 200px;
   }
 
   .navigation {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 12px;
+  }
+
+  .logo-trocadex {
+    width: 180px;
+  }
+
+  .navigation {
+    gap: 6px;
+  }
+
+  .nav-item,
+  .notification-toggle {
+    padding: 9px 10px;
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .nav-item svg,
+  .notification-toggle svg {
+    width: 16px;
+    height: 16px;
   }
 }

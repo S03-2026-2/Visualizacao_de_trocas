@@ -1,52 +1,88 @@
 
+/* =====================================
+   CARD PRINCIPAL
+===================================== */
+
 .troca-card {
-  background: #ffffff;
-  border: 1px solid #e5e4e7;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #142440, #1c3155);
+  border: 1px solid #30486c;
+  border-top: 3px solid #f6c945;
+  border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+
   display: flex;
   flex-direction: column;
   gap: 18px;
-  border: 1px solid #cbd8eb;
-  border-top: 3px solid #3b82f6;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.troca-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(20, 36, 64, 0.25);
+}
+
+/* =====================================
+   CABEÇALHO DO CARD
+===================================== */
 
 .troca-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
+.troca-card-header h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* Pokébola decorativa */
 .troca-card-header h3::before {
   content: '';
   display: inline-block;
-  width: 17px;
-  height: 17px;
-  margin-right: 9px;
-  vertical-align: -3px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+
   border: 2px solid #263b5c;
   border-radius: 50%;
+
   background: linear-gradient(
     to bottom,
     #e63946 0 43%,
     #263b5c 43% 57%,
     #ffffff 57% 100%
   );
+
   box-sizing: border-box;
 }
 
-.troca-card-header h3 {
-  margin: 0;
-  color: #08060d;
-}
+/* =====================================
+   STATUS
+===================================== */
 
 .troca-status {
-  padding: 5px 12px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+
   border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .troca-status.aberta {
@@ -54,52 +90,218 @@
   color: #1d4ed8;
 }
 
-.troca-status.concluida {
+.troca-status.concluida,
+.troca-status.aceita {
   background: #dcfce7;
   color: #15803d;
 }
 
 .troca-status.cancelada {
-  background: #f3f4f6;
-  color: #4b5563;
+  background: #e5e7eb;
+  color: #374151;
 }
 
-.troca-jogador {
+.troca-status.recusada {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* =====================================
+   INFORMAÇÕES DOS JOGADORES
+===================================== */
+
+.troca-jogador,
+.troca-jogadores {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  color: #475569;
+
+  color: #cbd5e1;
+  font-size: 14px;
 }
 
-.troca-jogador p {
+.troca-jogador p,
+.troca-jogadores p {
   margin: 0;
 }
+
+.troca-jogador strong,
+.troca-jogadores strong {
+  color: #ffffff;
+}
+
+/* =====================================
+   IMAGEM DO POKÉMON
+===================================== */
+
+.pokemon-imagem-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 190px;
+  padding: 14px;
+
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    135deg,
+    #f8fbff,
+    #dbeafe
+  );
+
+  border: 1px solid #c7d9f5;
+  border-radius: 12px;
+}
+
+.pokemon-imagem {
+  display: block;
+  width: 160px;
+  height: 160px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* =====================================
+   NOME DA CARTA LEILOADA
+===================================== */
 
 .carta-leilao {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #eff6ff, #e2ebfa);
-  border: 1px solid #c7d9f5;
-  padding: 16px;
-  border-radius: 8px;
-  color: #475569;
-  box-shadow: inset 0 1px 3px rgba(37, 99, 235, 0.06);
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  padding: 13px;
+  border-radius: 10px;
+
+  color: #cbd5e1;
+  text-align: center;
 }
 
 .carta-leilao strong {
-  color: #1e3a8a;
-  font-size: 16px;
+  color: #f6c945;
+  font-size: 17px;
 }
+
+/* =====================================
+   RODAPÉ DO CARD
+===================================== */
 
 .troca-card-footer {
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 12px;
+
   font-size: 13px;
-  color: #6b7280;
+  color: #b8c7dc;
 }
 
-.troca-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 9px 22px rgba(37, 99, 235, 0.16);
+/* =====================================
+   HISTÓRICO - ÁREA DAS CARTAS
+===================================== */
+
+.troca-cartas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  width: 100%;
+}
+
+/* Cada carta do histórico */
+.troca-carta {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+  padding: 14px 8px;
+
+  background: linear-gradient(
+    135deg,
+    #f8fbff,
+    #dbeafe
+  );
+
+  border: 1px solid #c7d9f5;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.troca-carta span {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.troca-carta strong {
+  color: #1e3a8a;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+/* Imagens das cartas do histórico */
+.troca-carta .pokemon-imagem {
+  width: 100%;
+  max-width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* Seta entre as cartas */
+.troca-seta {
+  flex-shrink: 0;
+  color: #f6c945;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 480px) {
+  .troca-card {
+    padding: 15px;
+    gap: 14px;
+  }
+
+  .troca-card-header h3 {
+    font-size: 15px;
+  }
+
+  .pokemon-imagem-container {
+    min-height: 160px;
+  }
+
+  .pokemon-imagem {
+    width: 135px;
+    height: 135px;
+  }
+
+  .troca-cartas {
+    gap: 6px;
+  }
+
+  .troca-carta {
+    padding: 10px 5px;
+  }
+
+  .troca-carta .pokemon-imagem {
+    height: 90px;
+  }
+
+  .troca-seta {
+    font-size: 22px;
+  }
 }

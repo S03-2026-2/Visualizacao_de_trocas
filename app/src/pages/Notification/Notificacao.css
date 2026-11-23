@@ -1,99 +1,334 @@
+
+/* =====================================
+   BOTÃO DE NOTIFICAÇÕES NO HEADER
+===================================== */
+
 .notification-toggle {
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--text-h);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  background: transparent;
+  color: #cbd5e1;
+
   font: inherit;
   font-size: 14px;
+  font-weight: 600;
+
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .notification-toggle:hover,
 .notification-toggle[aria-expanded='true'] {
-  border-color: var(--accent-border);
-  background: var(--accent-bg);
-  color: var(--accent);
+  background: rgba(246, 201, 69, 0.12);
+  color: #f6c945;
 }
+
+.notification-toggle:focus-visible {
+  outline: 2px solid #f6c945;
+  outline-offset: 3px;
+}
+
+/* =====================================
+   PAINEL DE NOTIFICAÇÕES
+===================================== */
 
 .notificacoes-popup {
   position: fixed;
-  z-index: 10;
-  top: 96px;
-  inset-inline-end: max(16px, calc((100vw - 1126px) / 2 + 16px));
+  z-index: 100;
+
+  top: 110px;
+  right: max(16px, calc((100vw - 1200px) / 2 + 24px));
+
   display: flex;
   flex-direction: column;
-  width: min(380px, calc(100vw - 32px));
-  max-height: calc(100dvh - 112px);
+  gap: 16px;
+
+  width: min(420px, calc(100vw - 32px));
+  max-height: calc(100dvh - 126px);
+
   box-sizing: border-box;
-  padding: 18px;
+  padding: 20px;
+
   overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--bg);
-  box-shadow: var(--shadow);
+
+  background: #142440;
+  border: 1px solid #30486c;
+  border-radius: 16px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
   text-align: left;
 }
 
-.notificações-contador {
-  flex: 0 0 auto;
-  padding-bottom: 14px;
-  color: var(--text-h);
-  font-size: 15px;
+/* =====================================
+   CABEÇALHO
+===================================== */
+
+.notificacoes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding-bottom: 16px;
+  border-bottom: 1px solid #30486c;
+}
+
+.notificacoes-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.notificacoes-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  background: #293f63;
+  border-radius: 10px;
+  color: #f6c945;
+}
+
+.notificacoes-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 17px;
   font-weight: 700;
 }
+
+.notificacoes-header p {
+  margin: 4px 0 0;
+  color: #b8c7dc;
+  font-size: 12px;
+}
+
+.notificacoes-contador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+
+  box-sizing: border-box;
+
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =====================================
+   LISTA DE NOTIFICAÇÕES
+===================================== */
 
 .notificacao-lista {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
+
+  padding-right: 3px;
 }
 
-.notificacao-card-temporario {
-  padding: 14px;
-  border: 1px solid var(--border);
+.notificacao-lista::-webkit-scrollbar {
+  width: 5px;
+}
+
+.notificacao-lista::-webkit-scrollbar-thumb {
+  background: #456184;
+  border-radius: 999px;
+}
+
+/* =====================================
+   CARD DE NOTIFICAÇÃO
+===================================== */
+
+.notificacao-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 15px 12px;
+
+  background: #1c3155;
+  border: 1px solid #30486c;
+  border-radius: 12px;
+
+  transition: background 0.2s ease;
+}
+
+.notificacao-card:hover {
+  background: #243d65;
+}
+
+.notificacao-card.nao-visualizada {
+  border-color: #f6c945;
+}
+
+/* =====================================
+   ÍCONES DOS TIPOS
+===================================== */
+
+.notificacao-tipo-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
   border-radius: 10px;
-  background: var(--social-bg);
 }
 
-.notificacao-card-temporario h6 {
-  margin: 0 0 8px;
-  color: var(--text-h);
-  font-size: 13px;
+.notificacao-tipo-icone svg {
+  width: 22px;
+  height: 22px;
+}
+
+.notificacao-tipo-icone.aceita {
+  background: #244d46;
+  color: #86efac;
+}
+
+.notificacao-tipo-icone.recusada {
+  background: #462d3c;
+  color: #fca5a5;
+}
+
+.notificacao-tipo-icone.informativa {
+  background: #293f63;
+  color: #93c5fd;
+}
+
+/* =====================================
+   CONTEÚDO DA NOTIFICAÇÃO
+===================================== */
+
+.notificacao-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.notificacao-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.notificacao-card-header h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 14px;
   font-weight: 700;
 }
 
-.notificacao-card-temporario p {
-  margin: 0 0 6px;
-  color: var(--text);
+.notificacao-status {
+  color: #b8c7dc;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nao-visualizada .notificacao-status {
+  color: #f6c945;
+}
+
+.notificacao-mensagem {
+  margin: 9px 0 12px;
+  color: #cbd5e1;
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.55;
   overflow-wrap: anywhere;
 }
 
-.notificacao-card-temporario p:last-child {
-  margin-bottom: 0;
-  color: var(--accent);
+.notificacao-data {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #94a3b8;
   font-size: 12px;
-  font-weight: 600;
 }
 
-.notificacao-vazia {
-  padding: 20px 12px;
-  color: var(--text);
-  font-size: 14px;
+/* =====================================
+   RODAPÉ
+===================================== */
+
+.notificacoes-footer {
+  padding-top: 14px;
+  border-top: 1px solid #30486c;
+
+  color: #94a3b8;
+  font-size: 12px;
   text-align: center;
 }
 
+/* =====================================
+   ESTADO VAZIO
+===================================== */
+
+.notificacao-vazia {
+  padding: 30px 14px;
+  text-align: center;
+}
+
+.notificacao-vazia h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.notificacao-vazia p {
+  margin: 0;
+  color: #b8c7dc;
+  font-size: 13px;
+}
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
 @media (max-width: 600px) {
   .notificacoes-popup {
-    top: 72px;
-    inset-inline-end: 12px;
+    top: 80px;
+    right: 12px;
+
     width: calc(100vw - 24px);
-    max-height: calc(100dvh - 84px);
+    max-height: calc(100dvh - 96px);
+
     padding: 16px;
+  }
+
+  .notificacao-card {
+    padding: 12px 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notification-toggle,
+  .notificacao-card {
+    transition: none;
   }
 }
