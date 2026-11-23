@@ -5,7 +5,17 @@ const pokemonIds: Record<string, number> = {
   bulbasaur: 1,
   charmander: 4,
   kakuna: 14,
-  ditto: 132
+  ditto: 132,
+  squirtle: 7,
+  gengar: 94,
+  snorlax: 143,
+  staryu: 120,
+  psyduck: 54,
+  onix: 95,
+  geodude: 74,
+  jigglypuff: 39,
+  meowth: 52,
+  abra: 63
 };
 
 export function buscarImagemPokemon(nome: string): string | null {

@@ -1,48 +1,15 @@
-
 import './Historico.css'
 import TrocaCardHistorico from '../../components/TrocaCardHistorico'
-
-type HistoricoItem = {
-  idTroca: string
-  jogadorDono: string
-  jogadorOfertante: string
-  cartaLeiloada: string
-  cartaOferecida: string
-  status: 'Aberta' | 'Cancelada' | 'Aceita' | 'Recusada'
-  dataCriacao: string
-}
-
-// Dados temporários para visualização da página.
-// Futuramente, serão substituídos por dados do Controller.
-const historicoExemplo: HistoricoItem[] = [
-  {
-    idTroca: 'TR001',
-    jogadorDono: 'Ash',
-    jogadorOfertante: 'Misty',
-    cartaLeiloada: 'Kakuna',
-    cartaOferecida: 'Eevee',
-    status: 'Aceita',
-    dataCriacao: '09/11/2026'
-  },
-  {
-    idTroca: 'TR002',
-    jogadorDono: 'Brock',
-    jogadorOfertante: 'Ash',
-    cartaLeiloada: 'Bulbasaur',
-    cartaOferecida: 'Ditto',
-    status: 'Recusada',
-    dataCriacao: '10/11/2026'
-  }
-]
+import { useHistorico } from '../../hooks/useHistorico'
 
 function Historico() {
+  const historico = useHistorico()
+  const quantidade = historico.dados?.length ?? 0
+
   return (
     <section className="historico-page">
-
-      {/* Cabeçalho da página */}
       <header className="historico-header">
         <div className="historico-titulo">
-
           <div className="historico-titulo-linha">
             <svg
               width="30"
@@ -58,44 +25,34 @@ function Historico() {
               <circle cx="12" cy="12" r="9" />
               <path d="M12 7v5l3 2" />
             </svg>
-
             <h2>Histórico de trocas</h2>
           </div>
-
-          <p>
-            Acompanhe os resultados das suas negociações Pokémon.
-          </p>
+          <p>Acompanhe os resultados das suas negociações Pokémon.</p>
         </div>
 
-        {/* Contador de negociações */}
         <span className="historico-contador">
-          {historicoExemplo.length}{' '}
-          {historicoExemplo.length === 1
-            ? 'negociação'
-            : 'negociações'}
+          {quantidade} {quantidade === 1 ? 'negociação' : 'negociações'}
         </span>
       </header>
 
-      {/* Listagem do histórico */}
+      {historico.carregando && !historico.dados && <p>Carregando histórico...</p>}
+      {historico.erro && <p className="historicoProposta-vazio">{historico.erro}</p>}
+
       <div className="historicoProposta-lista">
-        {historicoExemplo.length > 0 ? (
-          historicoExemplo.map((historico) => (
+        {historico.dados && historico.dados.length > 0 ? (
+          historico.dados.map((item) => (
             <TrocaCardHistorico
-              key={historico.idTroca}
-              {...historico}
+              key={item.idProposta}
+              {...item}
             />
           ))
-        ) : (
+        ) : historico.dados ? (
           <div className="historicoProposta-vazio">
             <h3>Nenhuma negociação encontrada</h3>
-            <p>
-              Quando suas trocas forem registradas,
-              elas aparecerão aqui.
-            </p>
+            <p>Quando suas trocas forem registradas, elas aparecerão aqui.</p>
           </div>
-        )}
+        ) : null}
       </div>
-
     </section>
   )
 }

@@ -140,6 +140,18 @@
   border-color: rgba(246, 201, 69, 0.4);
 }
 
+.notification-badge {
+  display: inline-grid;
+  min-width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 999px;
+  background: #e63946;
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 1;
+}
+
 /* Acessibilidade para teclado */
 .nav-item:focus-visible,
 .notification-toggle:focus-visible {
