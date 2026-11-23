@@ -6,7 +6,8 @@ import type { StatusProposta } from "../../models/Proposta";
 // os nomes e campos exatos devem ser confirmados com os grupos de Trocas, Jogador e Cartas.
 //
 // Os tipos "...Json" descrevem os dados CRUS que chegam da rede, não os models.
-// Transformar esses dados em Troca, Proposta, etc. é trabalho da fábrica (próxima etapa).
+// Transformar esses dados em Troca, Proposta, etc. é trabalho da fábrica (Factory Method,
+// nos serviços).
 //
 // Datas chegam como string (ex.: "2026-11-12T14:30:00.000Z"),
 // porque JSON não tem tipo Date. A fábrica converte para Date.
@@ -17,17 +18,12 @@ export interface JogadorJson {
     // sem "senha": a senha nunca deve trafegar nas consultas
 }
 
-export interface PokemonJson {
-    readonly id: string;
-    readonly sprite: string;
-}
-
+// O grupo de Cartas informa só qual Pokémon a carta é (idPokemon).
+// Nome, tipo e imagem vêm da PokeAPI (ver services/pokeapi).
 export interface CartaJson {
     readonly idCarta: string;
-    readonly nome: string;
-    readonly tipo: string;
-    readonly ofertada: boolean;
-    readonly pokemon: PokemonJson;
+    readonly idPokemon: string;
+    readonly ofertada: boolean; // true = está em uma troca ou proposta aberta
 }
 
 export interface TrocaJson {
@@ -57,15 +53,23 @@ export interface NotificacaoJson {
 // O jogador é identificado pelo "usuario" (provisório: confirmar com o grupo de Jogador).
 //
 // Uma interface só para todas as consultas porque, por enquanto, quem usa todas juntas
-// é a fachada. Se os grupos expuserem APIs separadas, dá para dividir em uma interface
+// são os serviços. Se os grupos expuserem APIs separadas, dá para dividir em uma interface
 // por grupo (ISP) sem mudar quem depende delas.
 //
-// A "decisão sobre uma troca" (aceitar/recusar) não está aqui: ações são enviadas
-// pelo Comunicador (Broker), aqui ficam só as consultas.
+// Ações (criar troca, aceitar proposta...) não estão aqui: elas são enviadas
+// pelo Comunicador (Broker). Aqui ficam só as consultas.
 export interface ApiConsultas {
-    buscarTrocasDisponiveis(usuario: string): Promise<TrocaJson[]>;
-    buscarHistoricoTrocas(usuario: string): Promise<TrocaJson[]>;
-    buscarHistoricoPropostas(usuario: string): Promise<PropostaJson[]>;
-    buscarCarta(idCarta: string): Promise<CartaJson | null>; // null = carta não encontrada
+    // Grupo de Trocas
+    buscarTrocasDisponiveis(usuario: string): Promise<TrocaJson[]>; // abertas e de outros jogadores
+    buscarHistoricoTrocas(usuario: string): Promise<TrocaJson[]>; // trocas criadas pelo jogador
+    buscarTroca(idTroca: string): Promise<TrocaJson | null>; // null = não encontrada
+    buscarPropostasDaTroca(idTroca: string): Promise<PropostaJson[]>;
+    buscarHistoricoPropostas(usuario: string): Promise<PropostaJson[]>; // feitas por ele ou nas trocas dele
+
+    // Grupo de Cartas
+    buscarCarta(idCarta: string): Promise<CartaJson | null>; // null = não encontrada
+    buscarCartasDoJogador(usuario: string): Promise<CartaJson[]>;
+
+    // Notificações do jogador
     buscarNotificacoes(usuario: string): Promise<NotificacaoJson[]>;
 }
