@@ -4,6 +4,7 @@ import Notificacoes from './pages/Notification/Notificacoes'
 import Historico from './pages/Historico/Historico'
 import Trocas from './pages/Trocas/Trocas'
 import logoTrocaDex from './assets/logo-trocadex.png'
+import { useNotificacoes } from './hooks/useNotificacoes'
 import './App.css'
 
 const pages = [
@@ -16,6 +17,7 @@ type Page = (typeof pages)[number]['id']
 function App() {
   const [activePage, setActivePage] = useState<Page>('Trocas')
   const [notificationsOpen, setNotificationsOpen] = useState(false)
+  const notificacoes = useNotificacoes()
 
   // Renderiza a página selecionada
   function renderPage() {
@@ -153,6 +155,11 @@ function App() {
               </svg>
 
               <span>Notificações</span>
+              {(notificacoes.dados?.naoVisualizadas ?? 0) > 0 && (
+                <span className="notification-badge">
+                  {notificacoes.dados?.naoVisualizadas}
+                </span>
+              )}
             </button>
 
           </nav>

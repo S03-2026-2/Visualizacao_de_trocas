@@ -26,6 +26,15 @@
   box-shadow: 0 10px 24px rgba(20, 36, 64, 0.25);
 }
 
+.troca-card-clicavel {
+  cursor: pointer;
+}
+
+.troca-card-clicavel:focus-visible {
+  outline: 3px solid #f6c945;
+  outline-offset: 3px;
+}
+
 /* =====================================
    CABEÇALHO DO CARD
 ===================================== */
@@ -193,6 +202,10 @@
 ===================================== */
 
 .troca-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 12px;
 

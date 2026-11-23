@@ -272,6 +272,24 @@
   font-size: 12px;
 }
 
+.notificacao-marcar-lida {
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: 1px solid rgba(246, 201, 69, 0.45);
+  border-radius: 7px;
+  background: rgba(246, 201, 69, 0.12);
+  color: #f6c945;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.notificacao-marcar-lida:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 /* =====================================
    RODAPÉ
 ===================================== */
